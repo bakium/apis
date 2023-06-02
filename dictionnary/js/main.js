@@ -15,7 +15,9 @@ function displayDefinition(data) {
         .map((definition, index) => {
             console.log(definition);
             return customData +=
-                `<li>${definition.definition}</li>
+                `<li>${definition.definition}
+                    ${definition.example ? `<i>Ex.: ${definition.example}</i>` : ''}
+                </li>
                 <br>
             `
         })
