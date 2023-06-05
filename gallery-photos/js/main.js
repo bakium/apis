@@ -1,12 +1,28 @@
-fetch("https://picsum.photos/500")
-    .then(res => res)
-    .then(data => {
-        console.log(data.url)
-        displayImage(data.url)
-    })
-    .catch(err => console.log("Err: ", err))
+const APIurl = "https://picsum.photos/500/500"
 
+function fetchUrl() {
+    fetch(APIurl)
+        .then(data => displayImage(data.url))
+        .catch(err => console.log("Err: ", err))
+}
+
+const target = document.getElementById('gallery-photos')
 
 function displayImage(url) {
-    const target = document.getElementById('gallery-img-1').src = url
+    if (!url) return
+    const img = document.createElement('img')
+    img.src = url
+    target.appendChild(img)
 }
+
+function getMultipleImages() {
+    let numberOfImage = 9
+    let count = 1
+
+    while (count <= numberOfImage) {
+        fetchUrl()
+        count++
+    }
+}
+
+getMultipleImages()
