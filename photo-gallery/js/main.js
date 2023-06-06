@@ -6,7 +6,7 @@ function fetchUrl() {
         .catch(err => console.log("Err: ", err))
 }
 
-const target = document.getElementById('gallery-photos')
+const target = document.getElementById('photo-gallery')
 
 function displayImage(url) {
     if (!url) return
